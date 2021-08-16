@@ -10,7 +10,7 @@
 input.cityInput{
   border: 0;
   outline: 0;
-  border-bottom: 2px solid gray;
+  border-bottom: 0.1px solid gray;
 }
 </style>
 <div class="row justify-content-center h-100">
