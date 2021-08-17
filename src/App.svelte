@@ -1,50 +1,63 @@
 <script>
+	import { onMount } from "svelte";
+
 	import CitySearch from './components/CitySearch.svelte';
 	import Card from './components/Card.svelte';
+	import AppHeader from './components/AppHeader.svelte';
 
+	// Variables
 	let appname = 'WEATHER BUDDY';
 	let cityList = [];
-	let searchCity;
-	let searchResults = [
-	'Florianópolis',
-	'Porto Velho',
-	'London',
-	'Caxias do Sul',
-	'Crestview'
-	];
-</script>
-<style>
-	hr.divider {
-		border-top-width: 1px;
-		border-top-color: rgb(0 0 0 / 30%);
+	let searchCity = '';
+	let searchResults;
+	let alert = "Sorry. We couldn't find the specified city.";
+	let showAlert = false;
+	let showIcons = false;
+	// Functions
+	function removeCity(cityList, item) {
+		delete cityList[item]
+		alert(cityList)
 	}
-</style>
-<div class="container py-5 px-5">
-	<!--App header-->
-	<div class="row justify-content-center">
-		<div class="col-lg-3 col-sm-1" />
-		<div class="col-lg-6 col-sm-12 align-self-center">
-			<h3 class="text-center">{appname}</h3>
-			<hr class="divider">
-		</div>
-		<div class="col-lg-3 col-sm-1" />
-	</div>
+
+</script>
+<!--App header-->
+<div class="d-flex justify-content-center py-3">
+	<AppHeader name={appname} />
+</div>
+<div class="row-full pt-5">
 	<!--Search weather by city-->
-	<div class="row justify-content-center">
-		<CitySearch />
+	<div class="centerScreen">
+		<div class="d-flex flex-wrap align-content-start">
+			<CitySearch cityList={cityList}/>
+		</div>
 	</div>
-	<!--Middle screen card or search error mes	sage-->
-	<div class="row justify-content-center">
-		{#if searchResults.length > 0}
-			<Card cityName={searchResults[0]}/>
-			{:else}
-			<h3>Sorry. We couldn't find the specified city.</h3>
-		{/if}
+	{cityList}
+	<!--Middle screen card or search error message-->
+	{#if cityList.length > 0}
+	<div class="d-flex justify-content-center py-3">
+			<Card cityName={searchCity} actionIcon="bi bi-plus-circle-fill"
+			showIcons={showIcons} />
 	</div>
+	{/if}
+
+	<!--Search error message-->
+	{#if showAlert == true }
+	<div class="d-flex justify-content-center py-3">
+		<div class="centerScreen">
+			<h3>{alert}</h3>
+		</div>
+	</div>
+	{/if}
+
 	<!--Card deck-->
-	<div class="row justify-content-center background-success">
-		{#each searchResults as  city }
-			<Card cityName={city}/>
-		{/each}
+	{#if cityList.length > 0}
+	<div class="centerScreen">
+		<div class="d-flex flex-wrap align-content-start">
+			{#each cityList as  city }
+				<Card cityName={city} actionIcon="bi bi-dash-circle-fill"
+				showIcons={showIcons}/>
+			{/each}
+		</div>
 	</div>
+  {/if}
 </div>
