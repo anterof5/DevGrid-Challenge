@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-12">
+    <h5 class="text-muted">Follow the wizard to make your API work.</h5>
+    <form method="POST" role="form">
+      <div class="form-group">
+        <label for="InputAPIKey" class="pt-3">1° Step - Configure your enviroment</label>
+        <input type="text" class="form-control" name="InputAPIKey" id="InputAPIKey" aria-describedby="apiKey"
+        placeholder="Please enter your API key (appid)" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your key with anyone else.</small>
+      </div>
+      <a href="/wizard1">
+        <input type="submit" class="btn btn-primary" value="Submit"/></a>
+    </form>
+  </div>
+</div>
+{% endblock %}

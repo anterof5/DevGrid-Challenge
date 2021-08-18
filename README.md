@@ -1,3 +1,11 @@
 # Weather app
 
-My first Svelte project to Devgrid Challenge.
+My project to Devgrid Challenge.
+
+Languages and frameworks:
+
+*Python
+*Flask
+*Javascript
+*Svelte
+*Boostrap

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-12">
+    <div class="alert alert-{{alert_color}}" role="alert">
+      {{alert_text}}
+    </div>
+    <p class="pt-3">
+      2 - Send request to <b>http://localhost:5000/weather/city_name</b> to get results per city
+      <br>
+      Or send request to <b>http://localhost:5000/weather?max=<max_number></b> to get cached per cities
+    </p>
+
+  </div>
+</div>
+{% endblock %}

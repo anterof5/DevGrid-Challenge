@@ -1,0 +1,20 @@
+body{
+  background-image: url("/images/nature-outdoors-weather-fog.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.row-full{
+  max-height: 100vh;
+  text-align: center;
+}
+.centerScreen{
+  vertical-align: middle;
+  align-content: center;
+  display: inline-block;
+}
+hr.divider {
+  border-top-width: 1px;
+  border-top-color: rgb(0 0 0 / 30%);
+}
