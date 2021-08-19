@@ -13,7 +13,7 @@
 
 </script>
 <!--App header-->
-<div class="d-flex justify-content-center py-3">
+<div class="row justify-content-center pt-3">
 	<AppHeader name={appname} />
 </div>
 <div class="row-full pt-5">

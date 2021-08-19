@@ -58,7 +58,7 @@
 
   <!--Search error message-->
   {#if $showFirst == false }
-    <div class="row centerScreen">
+    <div class="row centerScreen py-5">
       <div class="alert alert-danger" role="alert">
         {alert}
       </div>

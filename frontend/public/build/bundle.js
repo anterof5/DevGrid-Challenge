@@ -500,8 +500,8 @@ var app = (function () {
     			div0.textContent = `${/*alert*/ ctx[3]}`;
     			attr_dev(div0, "class", "alert alert-danger");
     			attr_dev(div0, "role", "alert");
-    			add_location(div0, file$3, 61, 6, 1829);
-    			attr_dev(div1, "class", "row centerScreen");
+    			add_location(div0, file$3, 61, 6, 1834);
+    			attr_dev(div1, "class", "row centerScreen py-5");
     			add_location(div1, file$3, 60, 4, 1791);
     		},
     		m: function mount(target, anchor) {
@@ -1234,7 +1234,7 @@ var app = (function () {
     			div = element("div");
     			create_component(card.$$.fragment);
     			attr_dev(div, "class", "row justify-content-center py-3");
-    			add_location(div, file, 27, 1, 792);
+    			add_location(div, file, 27, 1, 789);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1302,9 +1302,9 @@ var app = (function () {
     			}
 
     			attr_dev(div0, "class", "row justify-content-center");
-    			add_location(div0, file, 40, 1, 1205);
+    			add_location(div0, file, 40, 1, 1202);
     			attr_dev(div1, "class", "centerScreen py-3");
-    			add_location(div1, file, 39, 1, 1171);
+    			add_location(div1, file, 39, 1, 1168);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -1472,14 +1472,14 @@ var app = (function () {
     			if (if_block0) if_block0.c();
     			t2 = space();
     			if (if_block1) if_block1.c();
-    			attr_dev(div0, "class", "d-flex justify-content-center py-3");
+    			attr_dev(div0, "class", "row justify-content-center pt-3");
     			add_location(div0, file, 15, 0, 424);
     			attr_dev(div1, "class", "centerScreen");
-    			add_location(div1, file, 21, 1, 623);
+    			add_location(div1, file, 21, 1, 620);
     			attr_dev(div2, "class", "row justify-content-center py-3");
-    			add_location(div2, file, 20, 1, 575);
+    			add_location(div2, file, 20, 1, 572);
     			attr_dev(div3, "class", "row-full pt-5");
-    			add_location(div3, file, 18, 0, 513);
+    			add_location(div3, file, 18, 0, 510);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

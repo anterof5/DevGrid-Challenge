@@ -2,7 +2,7 @@
 FROM python:3.8
 
 # set the working directory in the container
-WORKDIR /code
+WORKDIR /app
 
 # copy the dependencies file to the working directory
 COPY api/requirements.txt .
