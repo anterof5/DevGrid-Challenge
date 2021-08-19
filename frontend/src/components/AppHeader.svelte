@@ -1,5 +1,5 @@
 <script>
-export let name;
+  export let name;
 </script>
 <div class="col-lg-3 col-sm-1" />
 <div class="col-lg-6 col-sm-12 align-self-center">

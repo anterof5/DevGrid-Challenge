@@ -5,7 +5,6 @@
   export let actionIcon;
   export let showIcons;
   export let weatherIcon;
-
 </script>
 <div class="card border-secondary  mx-2" style="width: 12rem;">
     <div class="card-body card-shadow ">
@@ -17,6 +16,7 @@
       <h2 class="card-text">{Math.round(temp)}C°</h2>
       <!-- Climate -->
       <h6>{climate.charAt(0).toUpperCase() + climate.slice(1)}</h6>
+      <!-- Action icons -->
       {#if showIcons==true}
         <a href="/" on:click={cityName}><i class="{actionIcon}"></i></a>
       {/if}
