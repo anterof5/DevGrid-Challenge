@@ -13,11 +13,11 @@
 * Svelte
 * Boostrap
 
-# Prerequisites
+## Prerequisites
 * Docker
 * Valid Open Weather API key (https://openweathermap.org/api).
 
-# Usage
+## Usage
 
 ## Run the backend
 Configure your API_KEY on /api/config.py, then:
