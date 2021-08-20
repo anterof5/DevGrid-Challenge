@@ -12,14 +12,16 @@
 
   // Generate a url for API search
   function getFetchUrl(searchCity) {
-    return 'http://api.openweathermap.org/data/2.5/weather?units=metric&appid=' + key + '&q=' + searchCity;
+    //return 'http://api.openweathermap.org/data/2.5/weather?units=metric&appid=' + key + '&q=' + searchCity;
+    return 'http://localhost:3000/weather/' + searchCity;
+
   }
 
   // If have a valid city update weatherList, and show first city in middle of screen
   async function addWeatherInfo() {
     const res = await fetch(getFetchUrl(cityName));
     // If status = 404, hide first city and show error message;
-    if (res.status === 404) {
+    if (res.status == 404) {
       showFirst.set(false);
     }
     // Else, hide error message, show first city in middle of screen and update list;
