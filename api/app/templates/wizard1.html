@@ -3,6 +3,13 @@
 <div class="row">
   <div class="col-12">
     <h5 class="text-muted">Follow the wizard to make your API work.</h5>
+
+    {% if alert_text %}
+    <div class="alert alert-{{alert_color}}" role="alert">
+      {{alert_text}}
+    </div>
+    {% endif %}
+
     <form method="POST" role="form">
       <div class="form-group">
         <label for="InputAPIKey" class="pt-3">1° Step - Configure your enviroment</label>

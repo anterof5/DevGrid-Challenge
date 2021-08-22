@@ -4,12 +4,13 @@ FROM python:3.8
 # set the working directory in the container
 WORKDIR /api
 
-# copy the dependencies file to the working directory
+# copy the all files to the working directory
 COPY . .
 
 
 # install dependencies
 RUN pip install -r requirements.txt
 
-# command to run on container start
+# commands to run on container start
+CMD [ "python", "test_api.py" ]
 CMD [ "python", "run.py" ]
