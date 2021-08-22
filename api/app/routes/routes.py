@@ -75,6 +75,9 @@ def cached():
         response = dict_items
     #Easy to read/compact
     #return(jsonify(response))
-
+    if type(response) is dict:
+        response = Response(response,  mimetype='application/json')
+    else:
+        response = make_response({"status": 404,"message":"No cached items"}, 404)
     #JSON output
-    return Response(response,  mimetype='application/json')
+    return response

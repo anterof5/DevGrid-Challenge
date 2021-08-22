@@ -5,8 +5,6 @@ from app import app
 from flask_caching import Cache
 from flask import jsonify
 
-
-
 class APITestCase(unittest.TestCase):
     """This class represents the city search test case"""
     def setUp(self):
@@ -29,7 +27,6 @@ class APITestCase(unittest.TestCase):
         self.cache.add('London', self.city, timeout=300) #5 minutes cache
         res = self.client().get('/weather')
         self.assertEqual(200, res.status_code)
-
 
 # Make the tests conveniently executable
 if __name__ == "__main__":
