@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 app.config.from_object('config')
 app.config["DEBUG"] = True
-
+app.config["CITY_DICT"] = {}
 from .routes import routes
 
 if __name__ == "__main__":

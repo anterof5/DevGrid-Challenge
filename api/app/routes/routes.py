@@ -9,13 +9,13 @@ from flask_cors import CORS
 # App config
 CORS(app)
 appid = app.config["APP_ID"]
+city_dict = app.config["CITY_DICT"]
 cache = Cache()
 cache.init_app(app, config={"CACHE_TYPE": "simple"})
 
 # Open weather variables
 url = "http://api.openweathermap.org/data/2.5/weather?units=metric"
 payload = ""
-city_dict = {}
 
 def checkKey(key):
     """Check if you have a valid Open Weather API key."""
@@ -52,7 +52,12 @@ def home():
             color="warning"
             template = '/wizard1.html'
     else:
-        template = '/wizard1.html'
+        if checkKey(appid) == True:
+            text="Congrats! You have a valid API key!"
+            color="success"
+            template = '/wizard2.html'
+        else:
+            template = '/wizard1.html'
 
     return render_template(template,title=page_title, alert_color=color, alert_text=text)
 
@@ -69,7 +74,7 @@ def city(city_name):
     else:
         response = requests.request("GET", url, data=payload, params=querystring)
         if response.status_code == requests.codes.ok:
-            cache.add(city_name,response.text, timeout=300) #5 minutes cache
+            cache.add(city_name,response.text, timeout=60) #5 minutes cache
             response = response.text
             city_dict[city_name]=response
         else:
@@ -81,16 +86,21 @@ def city(city_name):
 @app.route('/weather', methods=['GET'])
 def cached():
     """Show cached results"""
-    dict_items = cache.get_many(*city_dict.keys())
+    results = []
+    # If city is cached, append to result, else, remove from city list.
+    for item in city_dict.keys():
+        try:
+            results.append(cache.get(item))
+        except:
+            del city_dict[item]
     if 'max_number' in request.args:
         max_number = request.args['max_number']
-        response = list(dict_items)[:int(max_number)]
+        response = jsonify(results[:int(max_number)])
     else:
-        response = dict_items
+        response = jsonify(results)
     #Check for cached results, else, shows erro message.
-    if type(response) is dict:
-        response = Response(response,  mimetype='application/json')
-    else:
+    if len(results) == 0:
+        #Replace Open weather default error
         response = make_response({"status": 404,"message":"No cached items"}, 404)
     #JSON output
     return response

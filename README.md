@@ -25,8 +25,13 @@ Run these commands:
 
 Your backend is accessible on http://localhost:3000/, now configure a valid API key
 in form wizard.
+
 Send request to http://localhost:3000/weather/city_name to get results per city.
 Or send request to http://localhost:3000/weather?max= to get cached per cities.
+
+For unit tests, access the running container:
+- `docker exec -it api_web_1 bash`.
+- `python test_api.py`.
 
 ### Run the frontend
 Open a new terminal tab.

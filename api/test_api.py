@@ -14,6 +14,7 @@ class APITestCase(unittest.TestCase):
         self.client = self.app.test_client
         self.cache = Cache()
         self.cache.init_app(app, config={"CACHE_TYPE": "SimpleCache"})
+        self.cache.add('London', 'Hello', timeout=300) #5 minutes cache
 
     # Test if searcy by city response is 200 ("OK")
     def test_weather_bycity(self):
@@ -23,8 +24,8 @@ class APITestCase(unittest.TestCase):
 
     # Test if have any cached city
     def test_chached_cities(self):
-        self.city = {"city_name":"Hello!"}
-        self.cache.add('London', self.city, timeout=300) #5 minutes cache
+        city_dict = app.config["CITY_DICT"]
+        city_dict["London"]={"London":"Hello!"}
         res = self.client().get('/weather')
         self.assertEqual(200, res.status_code)
 

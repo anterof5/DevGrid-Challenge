@@ -12,5 +12,4 @@ COPY . .
 RUN pip install -r requirements.txt
 
 # commands to run on container start
-CMD [ "python", "test_api.py" ]
 CMD [ "python", "run.py" ]
